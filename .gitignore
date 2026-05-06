@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.venv/
+venv/
+
+# macOS
+.DS_Store
+
+# Local lab artifacts
+*.db
+*.bak
+*.docx.bak

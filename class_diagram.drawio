@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net">
+  <diagram name="Stock Analyzer Class Diagram" id="lab2">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1300" pageHeight="900" math="0" shadow="0">
+      <root>
+      <mxCell id="0"/>
+      <mxCell id="1" parent="0"/>
+      <mxCell id="obj" value="<b><i>object</i></b><br/><font color='#6b7280' size='1'>(Python built-in base class)</font>" style="rounded=1;whiteSpace=wrap;html=1;align=center;fillColor=#f3f4f6;strokeColor=#374151;fontStyle=2;fontSize=12" vertex="1" parent="1">
+  <mxGeometry x="510" y="40" width="220" height="60" as="geometry"/>
+</mxCell>
+      <mxCell id="stock" value="<b>Stock</b><br/><br/><i>- _symbol: str
+- _name: str
+- _shares: float
++ DataList: list[DailyData]</i><br/><br/>──<br/><br/><i>+ symbol: property (read-only)
++ name: property
++ shares: property (read-only)
++ buy(shares: float)
++ sell(shares: float)
++ add_data(stock_data: DailyData)</i><br/><br/><font color='#6b7280'>«stock_class.py»</font>" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;align=left;spacingLeft=10;spacingTop=8;spacingRight=10;fillColor=#dbeafe;strokeColor=#374151;fontFamily=Helvetica;fontSize=11" vertex="1" parent="1">
+  <mxGeometry x="60" y="240" width="280" height="320" as="geometry"/>
+</mxCell>
+      <mxCell id="daily" value="<b>DailyData</b><br/><br/><i>- _date: datetime
+- _close: float
+- _volume: float</i><br/><br/>──<br/><br/><i>+ date: property
++ close: property
++ volume: property</i><br/><br/><font color='#6b7280'>«stock_class.py»</font>" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;align=left;spacingLeft=10;spacingTop=8;spacingRight=10;fillColor=#dbeafe;strokeColor=#374151;fontFamily=Helvetica;fontSize=11" vertex="1" parent="1">
+  <mxGeometry x="460" y="240" width="280" height="320" as="geometry"/>
+</mxCell>
+      <mxCell id="app" value="<b>StockApp</b><br/><br/><i>+ stock_list: list[Stock]
++ root: Tk
++ stockList: Listbox
++ tabs: ttk.Notebook
++ headingLabel, dailyDataList, stockReport: …
++ addSymbolEntry, addNameEntry, …: Entry</i><br/><br/>──<br/><br/><i>+ load() / save()
++ display_stock_data()
++ add_stock() / delete_stock()
++ buy_shares() / sell_shares()
++ scrape_web_data()
++ importCSV_web_data()
++ display_chart()</i><br/><br/><font color='#6b7280'>«stock_GUI.py»</font>" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;align=left;spacingLeft=10;spacingTop=8;spacingRight=10;fillColor=#dbeafe;strokeColor=#374151;fontFamily=Helvetica;fontSize=11" vertex="1" parent="1">
+  <mxGeometry x="860" y="240" width="280" height="320" as="geometry"/>
+</mxCell>
+      <mxCell id="e_stock_obj" style="endArrow=block;endFill=0;html=1;strokeColor=#374151;endSize=14" edge="1" parent="1" source="stock" target="obj">
+  <mxGeometry relative="1" as="geometry"/>
+</mxCell>
+      <mxCell id="e_daily_obj" style="endArrow=block;endFill=0;html=1;strokeColor=#374151;endSize=14" edge="1" parent="1" source="daily" target="obj">
+  <mxGeometry relative="1" as="geometry"/>
+</mxCell>
+      <mxCell id="e_app_obj" style="endArrow=block;endFill=0;html=1;strokeColor=#374151;endSize=14" edge="1" parent="1" source="app" target="obj">
+  <mxGeometry relative="1" as="geometry"/>
+</mxCell>
+      <mxCell id="e_stock_daily" value="DataList&#10;0..*  HAS-A" style="endArrow=open;startArrow=diamondThin;startFill=0;html=1;strokeColor=#374151;endSize=10;startSize=14;fontSize=10" edge="1" parent="1" source="stock" target="daily">
+  <mxGeometry relative="1" as="geometry"/>
+</mxCell>
+      <mxCell id="e_app_stock" value="stock_list&#10;0..*  HAS-A" style="endArrow=open;startArrow=diamondThin;startFill=0;html=1;strokeColor=#374151;endSize=10;startSize=14;fontSize=10" edge="1" parent="1" source="app" target="stock">
+  <mxGeometry relative="1" as="geometry"/>
+</mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
